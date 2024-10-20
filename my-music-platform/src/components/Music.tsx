@@ -1,7 +1,6 @@
 import React from 'react';
 import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css'; // Import the default styles
-import '../styles/Music.css';
+import '../styles/Music.scss';
 
 interface CustomAudioPlayerProps {
     src: string; // Prop for the audio link

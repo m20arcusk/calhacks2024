@@ -42,7 +42,7 @@ const Counter: React.FC = () => {
                     
                 }}
             >
-                <span>{count}</span>
+                <span>{count}&nbsp;SUI</span>
             </Box>
             <Button variant="contained" disableElevation
             sx={{

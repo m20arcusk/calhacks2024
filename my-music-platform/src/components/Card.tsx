@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
-import LinearProgress from '@mui/material/LinearProgress';
+import { Box, LinearProgress } from '@mui/material';
 import CustomAudioPlayer from '@/components/Music';
+import Progress from '@/components/Progress';
 import Button from '@mui/material/Button';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -25,34 +25,15 @@ const MultiActionAreaCard: React.FC<MultiActionAreaCardProps> = ({ projectTitle,
                     <CustomAudioPlayer src={audioLink} />
                 </Box>
                 <Box sx={{ flex: 1, backgroundColor: '#434343', padding: "2vh" }}>
-                    <Box display="flex" alignItems="center" sx={{ gap: 1 }}>
-                        <Typography gutterBottom variant="body1" component="div" color='white' fontFamily={'Verdana'} paddingTop={0.5}>
-                            Goal:
-                        </Typography>
-                        <Box sx={{ width: '100%', border: '1px solid black', borderRadius: 5, overflow: 'hidden' }}>
-                            <LinearProgress 
-                                variant="determinate" 
-                                value={completionPercentage} 
-                                sx={{
-                                    height: 15,
-                                    backgroundColor: 'white',
-                                    borderRadius: 5,
-                                    '& .MuiLinearProgress-bar': {
-                                        backgroundColor: '#AAF5FF',
-                                        borderRadius: '20px'
-                                    },
-                                }} 
-                            />
-                        </Box>
-                    </Box>
+                    <Progress completionPercentage={completionPercentage}/>
                     <Typography variant="body2" color='#E3FCFF' fontFamily={'Verdana'} padding={1}>
-                        Support me to <b>produce this</b> professionally. Support badges starting at <b>$10</b>.
+                        Support me to allow me to produce this professionally. Support badges are starting at <b>10 SUI</b>.
                     </Typography>
                     <Box display="flex" justifyContent="center" alignItems="center" paddingTop="2vh">
-                        <Button 
-                            variant="contained" 
-                            endIcon={<FavoriteIcon />} 
-                            sx={{ fontFamily: 'Verdana', color: "black", backgroundColor: "white", borderRadius: '20px', paddingX: 8 }} 
+                        <Button
+                            variant="contained"
+                            endIcon={<FavoriteIcon />}
+                            sx={{ fontFamily: 'Verdana', color: "black", backgroundColor: "white", borderRadius: '20px', paddingX: 8 }}
                             onClick={onSupportClick} // Attach the click handler here
                         >
                             <b>Support</b>

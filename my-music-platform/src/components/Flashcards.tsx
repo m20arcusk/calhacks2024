@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Added useState import
+import React from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import CardFlip from '@/components/CardFlip';
 
@@ -10,14 +10,10 @@ interface FlashcardsProps {
     audioLink: string;
     completionPercentage: number;
   }[];
-  handleNext: () => void;
-  handlePrev: () => void;
+  direction: 'left' | 'right'; 
 }
 
-const Flashcards: React.FC<FlashcardsProps> = ({ currentCardIndex, cardData }) => {
-  const [direction, setDirection] = useState<'left' | 'right'>('left');
-
-  // You don't need internal next/prev, direction is updated based on current card index
+const Flashcards: React.FC<FlashcardsProps> = ({ currentCardIndex, cardData, direction }) => {
   const variants = {
     hidden: (dir: string) => ({
       x: dir === 'left' ? 100 : -100, // Start off-screen based on direction
@@ -35,9 +31,9 @@ const Flashcards: React.FC<FlashcardsProps> = ({ currentCardIndex, cardData }) =
 
   return (
     <div>
-      <AnimatePresence mode="wait"> {/* Updated here */}
+      <AnimatePresence mode="wait">
         <motion.div
-          key={currentCardIndex} // Key helps with remounting the component on index change
+          key={currentCardIndex}
           custom={direction}
           initial="hidden"
           animate="visible"

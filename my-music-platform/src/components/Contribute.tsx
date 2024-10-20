@@ -48,7 +48,7 @@ const Contribute: React.FC<ContributeProps> = ({ projectTitle, completionPercent
                 >
                     Goal:
                 </Typography>
-                <Box sx={{ width: '100%', border: '1px solid black', borderRadius: 5, overflow: 'hidden' }}>
+                <Box sx={{ width: '100%', position: 'relative', border: '1px solid black', borderRadius: 5, overflow: 'hidden' }}>
                     <LinearProgress
                         variant="determinate"
                         value={completionPercentage}
@@ -62,6 +62,19 @@ const Contribute: React.FC<ContributeProps> = ({ projectTitle, completionPercent
                             },
                         }}
                     />
+                    <Typography
+                        sx={{
+                            position: 'absolute',
+                            right: '8px', // Align to the right
+                            top: '50%', // Center vertically
+                            transform: 'translateY(-50%)', // Adjust positioning to center text
+                            fontSize: '12px',
+                            fontFamily: 'Verdana',
+                            color: 'black'
+                        }}
+                    >
+                        {completionPercentage}/100 SUI
+                    </Typography>
                 </Box>
             </Box>
 
@@ -73,7 +86,7 @@ const Contribute: React.FC<ContributeProps> = ({ projectTitle, completionPercent
                 color='#E3FCFF'
                 fontFamily={'Verdana'}
             >
-                For every $10 in support receive:<br />
+                For every 10 SUI in support receive:<br />
                 <b>5%</b> Ownership Share + <b>10%</b> Royalties
             </Typography>
 
