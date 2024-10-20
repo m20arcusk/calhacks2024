@@ -5,8 +5,34 @@ import CustomAudioPlayer from '@/components/Music';
 import MultiActionAreaCard from '@/components/Card';
 import Taskbar from "@/components/Taskbar";
 import { Box } from '@mui/material';
+import { useState } from 'react';
+
+const cardData = [
+  { id: 1, content: "Card 1 Content" },
+  { id: 2, content: "Card 2 Content" },
+];
 
 export default function Home() {
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [clickedStates, setClickedStates] = useState<boolean[]>([false, false]);
+
+  const handleNext = () => {
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cardData.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentCardIndex((prevIndex) => 
+      (prevIndex - 1 + cardData.length) % cardData.length
+    );
+  };
+
+  const handleCardClick = (index: number) => {
+    setClickedStates(prevStates => 
+      prevStates.map((state, i) => (i === index ? !state : state))
+    );
+  };
+
+
   return (
     <div className="">
       <Box
@@ -39,7 +65,7 @@ export default function Home() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100vh', // Full viewport height
+            flexGrow: 1, // This allows the inner Box to take remaining space
           }}
         >
           <MultiActionAreaCard />
