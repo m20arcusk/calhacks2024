@@ -12,20 +12,34 @@ export default function Home() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column', // Arrange items in a column
-          height: '100vh', // Full height of the viewport
+          flexDirection: 'column',
+          height: '100vh',
           backgroundImage: 'url("/background.svg")',
-          backgroundSize: 'cover', // Ensure the background image covers the area
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
+          position: 'relative', // Ensure relative positioning for the container
         }}
       >
-        <Taskbar />
+        {/* Taskbar is positioned at the top, out of the flow of the layout */}
+        <Box
+          sx={{
+            position: 'absolute', // Absolutely position the Taskbar
+            top: 0,
+            left: 0,
+            width: '100%', // Make Taskbar span full width
+            zIndex: 1, // Make sure Taskbar stays above content
+          }}
+        >
+          <Taskbar />
+        </Box>
+
+        {/* Center the MultiActionAreaCard */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flexGrow: 1, // This allows the inner Box to take remaining space
+            height: '100vh', // Full viewport height
           }}
         >
           <MultiActionAreaCard />

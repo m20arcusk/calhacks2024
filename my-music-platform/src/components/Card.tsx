@@ -49,26 +49,6 @@ export default function MultiActionAreaCard() {
                                         borderRadius: '20px'
                                     },
                                 }} />
-                            <Box
-                                sx={{
-                                    position: 'absolute',
-                                    top: 86,
-                                    left: 500,
-                                    bottom: 0,
-                                    right: 0,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <Typography sx={{
-                                    fontSize: '0.7rem',  // Custom font size
-                                    fontFamily: 'Verdana',  // Custom font family
-                                    color: 'black',       // Text color
-                                }}>
-                                    $40/$80
-                                </Typography>
-                            </Box>
                         </Box>
                     </Box>
                     <Typography variant="body2" color='#E3FCFF' fontFamily={'Verdana'} padding={1}>
