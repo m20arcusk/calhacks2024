@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import CustomAudioPlayer from '@/components/Music';
 import MultiActionAreaCard from '@/components/Card';
 import Taskbar from "@/components/Taskbar";
 import { Box } from '@mui/material';
@@ -32,7 +31,6 @@ export default function Home() {
     );
   };
 
-
   return (
     <div className="">
       <Box
@@ -43,32 +41,47 @@ export default function Home() {
           backgroundImage: 'url("/background.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          position: 'relative', // Ensure relative positioning for the container
+          position: 'relative',
         }}
       >
-        {/* Taskbar is positioned at the top, out of the flow of the layout */}
         <Box
           sx={{
-            position: 'absolute', // Absolutely position the Taskbar
+            position: 'absolute',
             top: 0,
             left: 0,
-            width: '100%', // Make Taskbar span full width
-            zIndex: 1, // Make sure Taskbar stays above content
+            width: '100%',
+            zIndex: 1, 
           }}
         >
           <Taskbar />
         </Box>
-
-        {/* Center the MultiActionAreaCard */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flexGrow: 1, // This allows the inner Box to take remaining space
+            flexGrow: 1, 
           }}
         >
+          <Image
+            src="/leftarrow.png" 
+            alt="Previous"
+            width={70}
+            height={70}
+            onClick={handlePrev}
+            style={{ cursor: 'pointer', marginRight: '10vh' }} 
+          />
+          
           <MultiActionAreaCard />
+          
+          <Image
+            src="/rightarrow.png"
+            alt="Next"
+            width={70}
+            height={70}
+            onClick={handleNext}
+            style={{ cursor: 'pointer', marginLeft: '10vh' }} 
+          />
         </Box>
       </Box>
     </div>
