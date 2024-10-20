@@ -10,6 +10,7 @@ const CustomAudioPlayer: React.FC = () => {
       src="/fein.mp3"
       defaultDuration='' // Keep duration for layout, hide with CSS
       customAdditionalControls={[]} // No additional controls, removes the repeat button
+      customVolumeControls={[]}
       layout='stacked'
       hasDefaultKeyBindings={false}
     />
