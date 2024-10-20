@@ -1,4 +1,10 @@
 /* styles.css */
 .rhap_container {
     background-color: #EEEEEE; /* Change to your desired color */
+    border-radius: 10px;
+  }
+
+/* Time Display */
+.rhap_current-time, .rhap_duration {
+    font-family: "Verdana";
   }
